@@ -1,0 +1,57 @@
+% Knowledge Base: Diet suggestions for various diseases
+
+diet(diabetes, [
+    "Avoid sugar and sweets",
+    "Eat whole grains",
+    "Include green leafy vegetables",
+    "Avoid white rice and potatoes",
+    "Take high-fiber foods"
+]).
+
+diet(hypertension, [
+    "Reduce salt intake",
+    "Avoid pickles and processed foods",
+    "Eat bananas, oranges, and spinach",
+    "Avoid oily and spicy foods"
+]).
+
+diet(obesity, [
+    'Avoid junk food',
+    'Eat more salads and fruits',
+    'Reduce rice and carbohydrates',
+    'Prefer boiled and steamed foods',
+    'Exercise regularly'
+]).
+
+diet(anemia, [
+    'Eat iron-rich foods like spinach',
+    'Include beetroot and dates',
+    'Take vitamin C foods',
+    'Avoid tea and coffee after meals'
+]).
+
+diet(ulcer, [
+    'Avoid spicy foods',
+    'Take more milk and bananas',
+    'Eat soft, easily digestible foods',
+    'Avoid acidic items like lemon'
+]).
+
+diet(constipation, [
+    'Eat high-fiber foods',
+    'Drink more water',
+    'Include fruits like papaya',
+    'Avoid fast foods'
+]).
+
+% Rule to display the suggestions
+suggest_diet(Disease) :-
+    diet(Disease, Suggestions),
+    write('Diet Suggestions for '), write(Disease), write(':'), nl,
+    print_list(Suggestions).
+
+% Helper predicate to print each suggestion
+print_list([]).
+print_list([H|T]) :-
+    write(' - '), write(H), nl,
+    print_list(T).
